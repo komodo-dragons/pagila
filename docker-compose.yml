@@ -1,6 +1,9 @@
 version: "3"
 volumes:
   pgdata:
+networks:
+  app-mono-repo_backend:
+    external: true
 services:
   pagila:
     image: postgres:13.2
@@ -16,3 +19,5 @@ services:
       - 5432
     ports:
       - 8901:5432
+    networks:
+      - app-mono-repo_backend
